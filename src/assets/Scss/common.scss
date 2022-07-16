@@ -1,0 +1,19 @@
+/****FONT****/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rubik:wght@300;400&display=swap");
+
+@mixin font-style($fontfamily, $weight) {
+    font-family: $fontfamily;
+    font-weight: $weight;
+}
+.rubik-300 {
+    @include font-style("'Rubik', sans-serif", 300);
+}
+.rubik-400 {
+    @include font-style("'Rubik', sans-serif", 400);
+}
+.open-sans-300 {
+    @include font-style("'Open Sans', sans-serif", 300);
+}
+.open-sans-400 {
+    @include font-style("'Open Sans', sans-serif", 400);
+}
