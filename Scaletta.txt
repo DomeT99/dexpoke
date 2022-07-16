@@ -1,0 +1,1 @@
+Menu: Pokemon(Abilities,Natures,Types),Berries,Moves(Categories),
