@@ -2,4 +2,4 @@
 </script>
 
 <template>
- </template>
+</template>
