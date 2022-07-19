@@ -7,11 +7,49 @@
 /****FONT****/
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
-
-/**FONT SIZE**/
+@font-face {
+    font-family: "PokeTitle";
+    src: url("../Font/PokemonClassic.ttf");
+}
+@font-face {
+    font-family: "PokeText";
+    src: url("../Font/PokemonSolid.ttf");
+}
+@font-face {
+    font-family: "PokeHollow";
+    src: url("../Font/PokemonHollow.ttf");
+}
+/**MISURE**/
 $thirteenPx: 13px;
 $fourteenPx: 14px;
+$twentytwoPx: 22px;
+$fourthPx: 40px;
+$fifthPx: 50px;
+$sixthfourPx:64px;
 
+/**FONT SIZE**/
+@mixin f-size-model($size) {
+    font-size: $size;
+}
+.f-size-13 {
+    @include f-size-model($thirteenPx);
+}
+.f-size-14 {
+    @include f-size-model($fourteenPx);
+}
+.f-size-22 {
+    @include f-size-model($twentytwoPx);
+}
+.f-size-40 {
+    @include f-size-model($fourthPx);
+}
+.f-size-50 {
+    @include f-size-model($fifthPx);
+}
+.f-size-64 {
+    @include f-size-model($sixthfourPx);
+}
+/**FONT FAMILY**/
 @mixin font-style($fontfamily, $typechar, $weight) {
     font-family: $fontfamily, $typechar;
     font-weight: $weight;
@@ -19,8 +57,8 @@ $fourteenPx: 14px;
 .ubuntu-300 {
     @include font-style("Ubuntu", "sans-serif", 300);
 }
-.ubuntu-400 {
-    @include font-style("Ubuntu", "sans-serif", 400);
+.ubuntu-800 {
+    @include font-style("Ubuntu", "sans-serif", 800);
 }
 .kanit-300 {
     @include font-style("Kanit", "sans-serif", 300);
@@ -28,12 +66,19 @@ $fourteenPx: 14px;
 .kanit-800 {
     @include font-style("Kanit", "sans-serif", 800);
 }
-
+.poke-classic {
+    @include font-style("PokeTitle", "sans-serif", 100);
+}
+.poke-solid {
+    @include font-style("PokeText", "sans-serif", 100);
+}
+.poke-hollow {
+    @include font-style("PokeHollow", "sans-serif", 100);
+}
 /****BORDER STYLE****/
 @mixin border-color($color) {
     border-color: $color;
 }
-
 .bb-gray {
     border-bottom: 2px solid;
     @include border-color($grayPoke);
@@ -44,7 +89,6 @@ $fourteenPx: 14px;
     animation-name: $animationName;
     animation-duration: $animationDuration;
 }
-
 .fade-in {
     @include animation-model(fade-in, 0.4s);
 }
