@@ -1,0 +1,35 @@
+/*FOGLIO DI STILE ADIBITO ALLA MODIFICA DELLE CLASSI DI BULMA OVE NECESSARIO*/
+
+/*FOGLIO STILE COLORI*/
+@import "./color.scss";
+
+/*FOGLIO STILE PARTI COMUNI*/
+@import "./common.scss";
+
+/****NAVBAR****/
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover,
+a.navbar-item.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+.navbar-link.is-active {
+    color: $redPoke;
+    background-color: $whitePoke;
+}
+
+.navbar-dropdown a.navbar-item:focus,
+.navbar-dropdown a.navbar-item:hover {
+    color: $redPoke;
+    background-color: $whitePoke;
+}
+.navbar-item.has-dropdown:focus .navbar-link,
+.navbar-item.has-dropdown:hover .navbar-link,
+.navbar-item.has-dropdown.is-active .navbar-link {
+    background-color: $whitePoke;
+}
+.navbar-link:not(.is-arrowless)::after {
+    border-color: $redPoke;
+    font-size: $thirteenPx;
+}

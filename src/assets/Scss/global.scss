@@ -1,3 +1,5 @@
 @import "/node_modules/bulma/bulma.sass"; //Bulma
+@import "./bulma.scss"; //Bulma modifica variabili e classe
 @import "../Scss/color.scss"; //Colors
 @import "../Scss/common.scss"; //Elementi comuni
+@import "../Scss/layout.scss"; //Layout

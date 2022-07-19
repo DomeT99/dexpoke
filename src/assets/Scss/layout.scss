@@ -1,0 +1,9 @@
+/*FOGLIO STILE LAYOUT*/ 
+
+/****POSITION****/
+@mixin position-model($position) {
+    position: $position;
+}
+.sticky-position{
+    @include position-model("sticky")
+}

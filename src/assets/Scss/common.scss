@@ -1,24 +1,32 @@
 /****IMPORT COLORS****/
 @import "./color.scss";
 
-/****FONT****/
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rubik:wght@300;400&display=swap");
+/****KEYFRAMES****/
+@import "./keyframes.scss";
 
-@mixin font-style($fontfamily, $weight) {
-    font-family: $fontfamily;
+/****FONT****/
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+/**FONT SIZE**/
+$thirteenPx: 13px;
+$fourteenPx: 14px;
+
+@mixin font-style($fontfamily, $typechar, $weight) {
+    font-family: $fontfamily, $typechar;
     font-weight: $weight;
 }
-.rubik-300 {
-    @include font-style("'Rubik', sans-serif", 300);
+.ubuntu-300 {
+    @include font-style("Ubuntu", "sans-serif", 300);
 }
-.rubik-400 {
-    @include font-style("'Rubik', sans-serif", 400);
+.ubuntu-400 {
+    @include font-style("Ubuntu", "sans-serif", 400);
 }
-.open-sans-300 {
-    @include font-style("'Open Sans', sans-serif", 300);
+.kanit-300 {
+    @include font-style("Kanit", "sans-serif", 300);
 }
-.open-sans-400 {
-    @include font-style("'Open Sans', sans-serif", 400);
+.kanit-800 {
+    @include font-style("Kanit", "sans-serif", 800);
 }
 
 /****BORDER STYLE****/
@@ -29,4 +37,14 @@
 .bb-gray {
     border-bottom: 2px solid;
     @include border-color($grayPoke);
+}
+
+/****ANIMAZIONI KEYFRAMES****/
+@mixin animation-model($animationName, $animationDuration) {
+    animation-name: $animationName;
+    animation-duration: $animationDuration;
+}
+
+.fade-in {
+    @include animation-model(fade-in, 0.4s);
 }

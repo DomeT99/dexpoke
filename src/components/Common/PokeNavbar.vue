@@ -3,12 +3,22 @@ import { onMounted } from "vue";
 //FontAwesome Component
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+//SOCIAL LINK PARAMETERS
+const twitterLink = import.meta.env.VITE_TWITTER_LINK;
+const instagramLink = import.meta.env.VITE_INSTAGRAM_LINK;
+const githubLink = import.meta.env.VITE_GITHUB_LINK;
+
 onMounted(() => {
     openHamburgerMenu()
 })
 
-function openHamburgerMenu() {
+function openSocial(social?: string) {
+    if (typeof (social) === "string") {
+        window.open(social);
+    }
+}
 
+function openHamburgerMenu() {
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
     $navbarBurgers.forEach(el => {
@@ -26,7 +36,7 @@ function openHamburgerMenu() {
 </script>
 
 <template>
-    <nav class="navbar bg-white-poke bb-gray" role="navigation" aria-label="main navigation">
+    <nav class="navbar bg-white-poke bb-gray kanit-800 sticky-position" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
 
             <!-- Hamburger Menu for mobile -->
@@ -45,7 +55,7 @@ function openHamburgerMenu() {
                     <a class="navbar-link">
                         Pokemon
                     </a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown fade-in">
                         <router-link to="/pokelist" class="navbar-item">
                             Complete List
                         </router-link>
@@ -66,7 +76,7 @@ function openHamburgerMenu() {
                     <a class="navbar-link">
                         Moves
                     </a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown fade-in">
                         <a class="navbar-item">
                             Categories
                         </a>
@@ -79,13 +89,13 @@ function openHamburgerMenu() {
             <div class="navbar-end" style="display:flex; justify-content:center">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <button class="button bg-red-poke">
+                        <button @click="openSocial(twitterLink)" class="button bg-red-poke">
                             <FontAwesomeIcon class="white-poke" icon="fa-brands fa-twitter" />
                         </button>
-                        <button class="button bg-black-poke">
+                        <button @click="openSocial(instagramLink)" class="button bg-black-poke">
                             <FontAwesomeIcon class="white-poke" icon="fa-brands fa-instagram" />
                         </button>
-                        <button class="button bg-white-poke">
+                        <button @click="openSocial(githubLink)" class="button bg-white-poke">
                             <FontAwesomeIcon class="black-poke" icon="fa-brands fa-github" />
                         </button>
                     </div>
