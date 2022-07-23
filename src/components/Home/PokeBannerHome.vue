@@ -6,10 +6,6 @@
     </div>
 </template>
 <style lang="scss">
-.opacity-0 {
-    opacity: 0;
-}
-
 .title-dexpoke-style {
     background: linear-gradient(305deg, #d5a100 40%, #0a285f 60%);
     -webkit-background-clip: text;

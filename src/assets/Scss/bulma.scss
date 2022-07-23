@@ -6,6 +6,9 @@
 /*FOGLIO STILE PARTI COMUNI*/
 @import "./common.scss";
 
+/*FOGLIO STILE KEYFRAMES*/
+@import "./keyframes.scss";
+
 /****NAVBAR****/
 a.navbar-item:focus,
 a.navbar-item:focus-within,
@@ -18,7 +21,6 @@ a.navbar-item.is-active,
     color: $redPoke;
     background-color: $whitePoke;
 }
-
 .navbar-dropdown a.navbar-item:focus,
 .navbar-dropdown a.navbar-item:hover {
     color: $redPoke;
@@ -32,4 +34,25 @@ a.navbar-item.is-active,
 .navbar-link:not(.is-arrowless)::after {
     border-color: $redPoke;
     font-size: $thirteenPx;
+}
+/****BUTTONS****/
+.button {
+    &.button:hover {
+        border-color: none;
+        color: none;
+    }
+    &.button:focus:not(:active) {
+        box-shadow: none;
+    }
+    &.is-focused:not(:active) {
+        box-shadow: none;
+    }
+    &.button:focus {
+        border-color: none;
+        color: none;
+    }
+    &.is-focused {
+        border-color: none;
+        color: none;
+    }
 }

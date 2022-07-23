@@ -1,24 +1,45 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-//FontAwesome Component
+//FONTAWESOME COMPONENT
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+//COMPONENTS
+import PokeButtonVue from "./PokeButton.vue";
+//INTERFACES
+import { ButtonProps } from "../../assets/Modules/Interfaces"
 
 //SOCIAL LINK PARAMETERS
 const twitterLink = import.meta.env.VITE_TWITTER_LINK;
 const instagramLink = import.meta.env.VITE_INSTAGRAM_LINK;
 const githubLink = import.meta.env.VITE_GITHUB_LINK;
 
+
+//DATA
+
+/* Proprietà bottoni social */
+const twitterBtn: ButtonProps = {
+    classButton: "bg-red-poke white-poke button-red",
+    funcButton: (social?: string) => {
+        if (typeof (social) === "string") {
+            window.open(social);
+        }
+    }
+}
+const instagramBtn: ButtonProps = {
+    classButton: "bg-black-poke white-poke button-black",
+    funcButton: (social?: string) => {
+        if (typeof (social) === "string") {
+            window.open(social);
+        }
+    }
+}
+
+//MOUNTED
 onMounted(() => {
     openHamburgerMenu()
 })
 
-function openSocial(social?: string) {
-    if (typeof (social) === "string") {
-        window.open(social);
-    }
-}
-
-function openHamburgerMenu() {
+//METHODS
+const openHamburgerMenu = () => {
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
     $navbarBurgers.forEach(el => {
@@ -51,14 +72,17 @@ function openHamburgerMenu() {
                 <router-link to="/" class="navbar-item">
                     Home
                 </router-link>
+                <a class="navbar-item">
+                    About
+                </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
                         Pokemon
                     </a>
                     <div class="navbar-dropdown fade-in">
-                        <router-link to="/pokelist" class="navbar-item">
+                        <a class="navbar-item">
                             Complete List
-                        </router-link>
+                        </a>
                         <a class="navbar-item">
                             Abilities
                         </a>
@@ -89,19 +113,25 @@ function openHamburgerMenu() {
             <div class="navbar-end" style="display:flex; justify-content:center">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <button @click="openSocial(twitterLink)" class="button bg-red-poke">
-                            <FontAwesomeIcon class="white-poke" icon="fa-brands fa-twitter" />
-                        </button>
-                        <button @click="openSocial(instagramLink)" class="button bg-black-poke">
-                            <FontAwesomeIcon class="white-poke" icon="fa-brands fa-instagram" />
-                        </button>
-                        <button @click="openSocial(githubLink)" class="button bg-white-poke">
-                            <FontAwesomeIcon class="black-poke" icon="fa-brands fa-github" />
-                        </button>
+
+                        <PokeButtonVue :classButton="twitterBtn.classButton"
+                            :funcButton="() => twitterBtn.funcButton(twitterLink)">
+                            <FontAwesomeIcon icon="fa-brands fa-twitter" />
+                        </PokeButtonVue>
+
+                        <PokeButtonVue :classButton="instagramBtn.classButton"
+                            :funcButton="() => instagramBtn.funcButton(instagramLink)">
+                            <FontAwesomeIcon icon="fa-brands fa-instagram" />
+                        </PokeButtonVue>
+
+                        <PokeButtonVue :classButton="twitterBtn.classButton"
+                            :funcButton="() => twitterBtn.funcButton(twitterLink)">
+                            <FontAwesomeIcon icon="fa-brands fa-github" />
+                        </PokeButtonVue>
+
                     </div>
                 </div>
             </div>
         </div>
-
     </nav>
 </template>

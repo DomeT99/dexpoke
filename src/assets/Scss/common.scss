@@ -25,7 +25,7 @@ $fourteenPx: 14px;
 $twentytwoPx: 22px;
 $fourthPx: 40px;
 $fifthPx: 50px;
-$sixthfourPx:64px;
+$sixthfourPx: 64px;
 
 /**FONT SIZE**/
 @mixin f-size-model($size) {
@@ -91,4 +91,53 @@ $sixthfourPx:64px;
 }
 .fade-in {
     @include animation-model(fade-in, 0.4s);
+}
+
+/****OPACITY****/
+.opacity-0 {
+    opacity: 0;
+}
+
+/****BUTTONS STYLE****/
+@mixin button-template($bgcolor, $color, $bordercolor) {
+    background-color: $bgcolor;
+    color: $color;
+    border-color: $bordercolor;
+}
+/**BUTTONS**/
+.button-red {
+    transition: 0.3s;
+    &.button-red:hover {
+        @include button-template($whitePoke, $blackPoke, $redPoke);
+        @include animation-model(fade-in-100, 0.3s);
+    }
+    &.button-red:focus:not(:active) {
+        box-shadow: none;
+    }
+    &.button-red:focus {
+        border-color: $redPoke;
+        color: $blackPoke;
+    }
+    &.button-red:focus:not(:hover) {
+        box-shadow: none;
+        color: $whitePoke;
+    }
+}
+.button-black {
+    transition: 0.3s;
+    &.button-black:hover {
+        @include button-template($whitePoke, $blackPoke, $blackPoke);
+        @include animation-model(fade-in-100, 0.3s);
+    }
+    &.button-black:focus:not(:active) {
+        box-shadow: none;
+    }
+    &.button-black:focus {
+        border-color: $blackPoke;
+        color: $blackPoke;
+    }
+    &.button-black:focus:not(:hover) {
+        box-shadow: none;
+        color: $whitePoke;
+    }
 }
